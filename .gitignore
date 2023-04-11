@@ -7,3 +7,5 @@ venv/
 minutes/manage.py
 
 .idea/
+
+minutes/minutes/__pycache__/
