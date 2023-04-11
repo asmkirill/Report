@@ -1,0 +1,9 @@
+# Ignore virtual environment
+venv/
+
+# Ignore environment variables file
+.env
+
+minutes/manage.py
+
+.idea/
