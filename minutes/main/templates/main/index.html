@@ -22,26 +22,31 @@
 
 {% block content %}
     <div>
-<br/><br/><br/><br/><br/>
-        Build fast, responsive sites with Bootstrap
-        Powerful, extensible, and feature-packed frontend toolkit.
-        Build and customize with Sass,
-        utilize prebuilt grid system and components,
-        and bring projects to life with powerful JavaScript plugins.
         <br/>
-                Build fast, responsive sites with Bootstrap
-        Powerful, extensible, and feature-packed frontend toolkit.
-        Build and customize with Sass,
-        utilize prebuilt grid system and components,
-        and bring projects to life with powerful JavaScript plugins.
+        <h3>This is a description of a Django project.</h3>
+
+        "Minutes" folder: This folder contains <b>tech files</b> that help the project work.
         <br/>
-                Build fast, responsive sites with Bootstrap
-        Powerful, extensible, and feature-packed frontend toolkit.
-        Build and customize with Sass,
-        utilize prebuilt grid system and components,
-        and bring projects to life with powerful JavaScript plugins.
+        <b>"Main"</b> folder: This folder has a subfolder called <b>"templates"</b> with two files:
+        <b>index.html:</b> This file has a form where the user enters a document number and clicks a button.
+        When the button is clicked, the corresponding document is retrieved from the MySQL database.
+        If the document number is not found, an error message is displayed.
+        Additionally, there is a button that takes the user to another page.
         <br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <b>layout.html:</b> This is a base template used for other pages in the project.
+        <b>"protocol" folder:</b> This folder has a subfolder called "templates" with one file:
+create_protocol.html: This file has a form that displays seven fields.
+        <br/>
+        When the page is loaded, the document number is displayed at the top of the form.
+
+
+
+
+        <h4>There are two buttons at the bottom of the form:</h4>
+        <b>"Add":</b> When this button is clicked, five empty fields are added to the form.
+        <br/>
+        <b>"Save":</b> When this button is clicked, the form data is saved without reloading the page.
+        <br/>
     </div>
 {% endblock %}
 
