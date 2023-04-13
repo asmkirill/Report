@@ -7,5 +7,8 @@ minutes/manage.py
 .idea/
 
 minutes/minutes/__pycache__/
+minutes/protocol/__pycache__/
+minutes/main/__pycache__/
+minutes/protocol/migrations/__pycache__/
 
 local_files_for_report/

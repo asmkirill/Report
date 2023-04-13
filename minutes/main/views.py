@@ -1,57 +1,34 @@
 from django.shortcuts import render, redirect
-from .forms import DocumentIdentifierForm, DocumentDataForm
+from .forms import DocumentIdentifierForm
 from .models import DocumentsIdentifier
-from django.http import HttpResponseBadRequest
-from django.template.loader import render_to_string
-
-
-def about(request):
-   return render(request, 'main/about.html')
-
-
 
 
 def index(request):
     error = ''
     if request.method == 'POST':
-        form = DocumentDataForm(request.POST)
+        form = DocumentIdentifierForm(request.POST)
         if form.is_valid():
-            # Получаем данные из формы
+            # вместо сохранения формы выполняем поиск документа по номеру
             identifier = form.cleaned_data['identifier']
-            # Ищем документ по идентификатору
-            document = DocumentsIdentifier.objects.filter(identifier=identifier).first()
-            if document:
-                data = {
-                    'document': document,
-                    'fields': {
-                        'field_1': 'number',
-                        'field_2': 'item',
-                        'field_3': 'status',
-                        'field_4': 'description'
-                    }
-                }
-                return render(request, 'main/document_data.html', data)
-            else:
+            try:
+                documents_identifier = DocumentsIdentifier.objects.get(identifier=identifier)
+            except DocumentsIdentifier.DoesNotExist:
                 error = 'Document not found'
+            else:
+                # если документ найден, переходим на страницу создания протокола
+                return redirect('create_protocol', id=documents_identifier.id)
         else:
-            error = 'Wrong input'
+            error = 'Document not found'
+    else:
+        # если запрос GET, генерируем форму для ввода номера документа
+        form = DocumentIdentifierForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/index.html', data)
 
 
 
-
-
-
-
-def get_data(request):
-    form = DocumentDataForm(request.GET or None)
-    data = {}
-    if form.is_valid():
-        document = form.get_document_data()
-        if document:
-            data = {
-                'title': 'Document data',
-                'document': document,
-            }
-    return render(request, 'main/document_data.html', {'form': form, **data})
-
-
+def about(request):
+    return render(request, 'main/about.html')

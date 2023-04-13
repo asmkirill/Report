@@ -1,0 +1,12 @@
+{% extends 'main/layout.html' %}
+
+
+{% block content %}
+  <h1>Create Protocol</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="documents_identifier_id" value="{{ documents_identifier.id }}">
+    <button class="btn btn-secondary" type="submit">Create</button>
+  </form>
+{% endblock %}
