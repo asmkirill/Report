@@ -2,15 +2,39 @@
 
 {% block title %}{{ title }}{% endblock %}
 
+{% block header-logo %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.identifier }}
+        <button class="btn btn-secondary" type="submit">Get</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
+
+{% block header-slogan %}
+    <div class="header-slogan">
+        <div class="header-container">
+            <h2>An educational and applied project aimed at creating an interactive website</h2>
+        </div>
+    </div>
+{% endblock %}
+
+
 {% block content %}
-    <div class="features">
+    <div>
         <h1>{{ title }}</h1>
-        <p>
-            An educational and applied project aimed at creating an interactive website that processes
-            user documents entered in various forms, saves them in MySQL,
-            and interacts with different applications through JavaScript.
-        </p>
-        <button class="btn btn-warning">To page About</button>
+        <br/>
+
+        <form method="post" action="{% url 'get_data' %}">
+          {% csrf_token %}
+          {{ form }}
+          <button type="submit" class="btn btn-primary">Get data</button>
+        </form>
+
+
+        <br/>
+        <br/>
+
 
         {% for i in values %}
             <p>{{ i }}</p>
@@ -20,5 +44,7 @@
         {% endfor %}
 
         {{ device }}
+
     </div>
 {% endblock %}
+

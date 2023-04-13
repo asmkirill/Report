@@ -1,7 +1,5 @@
-# Ignore virtual environment
 venv/
 
-# Ignore environment variables file
 .env
 
 minutes/manage.py
@@ -9,3 +7,5 @@ minutes/manage.py
 .idea/
 
 minutes/minutes/__pycache__/
+
+local_files_for_report/
