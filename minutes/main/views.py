@@ -69,14 +69,5 @@ def index(request):
 
 
 
-# from django.shortcuts import render, redirect
-# from .forms import DocumentIdentifierForm
-# from .models import DocumentsIdentifier
-
-#
-
-
-
-
 def about(request):
     return render(request, 'main/about.html')
