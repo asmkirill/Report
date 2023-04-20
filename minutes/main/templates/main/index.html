@@ -19,9 +19,13 @@
     </div>
 {% endblock %}
 
+{% block nav %}
+    <a href="{% url 'create_protocol' %}" class="btn btn-success">Create new protocol</a>
+{% endblock %}
 
 {% block content %}
-    <div>
+    <div class="project_description">
+        <br/>
         <br/>
         <h3>This is a description of a Django project.</h3>
         <br/>
@@ -49,6 +53,7 @@
         <br/>
         <b>"Save":</b> When this button is clicked, the form data is saved without reloading the page.
         <br/>
+
     </div>
 {% endblock %}
 

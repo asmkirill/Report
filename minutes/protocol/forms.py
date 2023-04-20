@@ -1,4 +1,5 @@
-from django.forms import ModelForm, TextInput, Textarea
+from django import forms
+from django.forms import ModelForm, Textarea, BaseFormSet
 from .models import ProtocolData
 
 
@@ -9,29 +10,40 @@ class ProtocolDataForm(ModelForm):
 
         widgets = {
             'title': Textarea(attrs={
-                'class': 'form-control',
-                'placeholder': 'Title of meeting'
+                'class': 'protocol_fields_title',
+                'placeholder': 'Title', 'rows': 2
             }),
-
-            'no': TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'No'
+            'no': Textarea(attrs={
+                'class': 'protocol_fields_no',
+                'placeholder': 'No', 'rows': 2
             }),
             'item': Textarea(attrs={
-                'class': 'form-control',
-                'placeholder': 'Item'
+                'class': 'protocol_fields_item',
+                'placeholder': 'Item', 'rows': 2
             }),
             'responsible': Textarea(attrs={
-                'class': 'form-control',
-                'placeholder': 'Responsible'
+                'class': 'protocol_fields_responsible',
+                'placeholder': 'Responsible', 'rows': 2
+            }),
+            'deadline': Textarea(attrs={
+                'class': 'protocol_fields_deadline',
+                'placeholder': 'Deadline', 'rows': 2
             }),
             'status': Textarea(attrs={
-                'class': 'form-control',
-                'placeholder': 'Status'
+                'class': 'protocol_fields_status',
+                'placeholder': 'Status', 'rows': 2
             }),
             'notes': Textarea(attrs={
-                'class': 'form-control',
-                'placeholder': 'Other notes'
+                'class': 'protocol_fields_notes',
+                'placeholder': 'Other notes', 'rows': 2
             })
         }
 
+
+class ProtocolDataFormSet(BaseFormSet):
+    def add_fields(self, form, index):
+        form.fields['no'] = forms.Textarea()
+        form.fields['item'] = forms.Textarea()
+        form.fields['responsible'] = forms.Textarea()
+        form.fields['deadline'] = forms.Textarea()
+        form.fields['status'] = forms.Textarea()

@@ -1,0 +1,116 @@
+
+.header-logo p {
+    float: left;
+    height: 2.0rem;
+    margin: 0.55rem 0 0 0.5rem;
+    font-size: 2.04rem;
+    color: #999999;
+    font-weight: 550;
+}
+
+#create_protocol_form {
+    background: #ffffff;
+}
+
+td {
+    margin: 0;
+    padding: 0;
+    border: solid 1px #444444;
+    vertical-align: top;
+    height: auto;
+}
+/*  BASIC PROTOCOL FIELDS downloaded by default  */
+
+.basic_protocol_fields {
+    margin-top: 1rem;
+    vertical-align: top;
+    width: 100%;
+    min-width: 43rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.basic_protocol_fields textarea {
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Styles of form.py elements */
+
+.protocol_fields_title {
+    width: 100%;
+    min-width: 43rem;
+    font-weight: 700;
+    vertical-align: top;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*  line of textareas  */
+
+.basic_protocol_fields {
+  margin-top: 1rem;
+  vertical-align: top;
+  width: 100%;
+  min-width: 43rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.protocol_fields_no {
+    vertical-align: top;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 1rem;
+    margin: 0;
+    padding: 0;
+    float: left;
+    display: block;
+}
+.td_no {
+width: 5%;
+}
+.protocol_fields_item {
+    vertical-align: top;
+    border: 0;
+    width: 100%;
+    min-width: 11rem;
+    margin: 0;
+    padding: 0;
+    float: left;
+    display: block;
+}
+.td_item {
+width: 53%;
+}
+.protocol_fields_responsible,
+.protocol_fields_deadline,
+.protocol_fields_status {
+    vertical-align: top;
+    border: 0;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    min-width: 6rem;
+    padding: 0;
+    float: left;
+    display: block;
+}
+.td_last_3 {
+width: 14%;
+}
+.protocol_fields_notes {
+    vertical-align: top;
+    border: 0;
+    width: 100%;
+    min-width: 43rem;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
