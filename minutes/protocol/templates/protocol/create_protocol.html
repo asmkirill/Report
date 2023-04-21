@@ -1,25 +1,23 @@
 {% extends 'main/layout.html' %}
 {% load static %}
-{% static 'main/js/main.js' %}
-
 
 {% block header-logo %}
+    <script src="{% static 'protocol/js/forms.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <p>ID 003.04.14.0005</p>
 {% endblock %}
 
-
 {% block content %}
-
 
 <form id="create_protocol_form" method="post">
     {% csrf_token %}
-    <button type="button" id="add_row" class="btn btn-primary">Add new fields</button>
+    <button type="button" id="addRowBtn" class="btn btn-primary">Add new fields</button>
 
     <div class="basic_protocol_fields">
         {{ form.title }}
 
-        <table class="wrapper">
-            <tr>
+        <table>
+            <tr id="row-template">
                 <td class="td_no">
                     {{ form.no }}
                 </td>
@@ -36,49 +34,13 @@
                     {{ form.status }}
                 </td>
             </tr>
-            <tr>
-                <td class="td_no">
-                    {{ form.no }}
-                </td>
-                <td class="td_item">
-                    {{ form.item }}
-                </td>
-                <td class="td_last_3">
-                    {{ form.responsible }}
-                </td>
-                <td class="td_last_3">
-                    {{ form.deadline }}
-                </td>
-                <td class="td_last_3">
-                    {{ form.status }}
-                </td>
-            </tr>
+
             <tr>
                 <td colspan="5">
                     {{ form.notes }}
                 </td>
             </tr>
         </table>
-
-<!--        <div class="wrapper">-->
-<!--            <div class="">-->
-<!--                {{ form.no }}-->
-<!--            </div>-->
-<!--            <div class="">-->
-<!--                {{ form.item }}-->
-<!--            </div>-->
-<!--            <div class="">-->
-<!--                {{ form.responsible }}-->
-<!--            </div>-->
-<!--            <div class="">-->
-<!--                {{ form.deadline }}-->
-<!--            </div>-->
-<!--            <div class="">-->
-<!--                {{ form.status }}-->
-<!--            </div>-->
-<!--        </div>-->
-
-
     </div>
     <br />
     <button type="submit" id="save-protocol" class="btn btn-outline-success">Save to database</button>
@@ -86,40 +48,4 @@
 
 {% endblock %}
 
-
-<!--  <h2>Create new protocol</h2>-->
-
-<!--  <form id="protocol-form" method="POST">-->
-<!--    {% csrf_token %}-->
-<!--    <div class="form-group">-->
-<!--      {{ form.title }}-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      {{ form.no }}-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      {{ form.item }}-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      {{ form.responsible }}-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      {{ form.deadline }}-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      {{ form.status }}-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      {{ form.notes }}-->
-<!--    </div>-->
-
-<!--    <div id="form-rows">-->
-<!--      &lt;!&ndash; Container for dynamic form rows &ndash;&gt;-->
-<!--    </div>-->
-
-<!--    <button type="button" id="add-row" class="btn btn-primary">Add new fields</button>-->
-<!--    <button type="submit" class="btn btn-success">Save</button>-->
-<!--  </form>-->
-
-
-
+<script src="{% static 'protocol/js/forms.js' %}"></script>

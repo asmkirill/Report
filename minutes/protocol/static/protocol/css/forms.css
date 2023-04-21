@@ -30,6 +30,7 @@ td {
     padding: 0;
     line-height: 1.2;
 }
+/* worked code
 
 .basic_protocol_fields textarea {
     resize: none;
@@ -37,6 +38,27 @@ td {
     box-sizing: border-box;
     height: 100%;
 }
+
+.basic_protocol_fields textarea {
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: auto;
+}
+
+                                                */
+
+.basic_protocol_fields textarea, .basic_protocol_fields .new-field {
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: auto;
+}
+
+
+
 
 /* Styles of form.py elements */
 

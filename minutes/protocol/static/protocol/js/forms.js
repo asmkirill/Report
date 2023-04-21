@@ -1,64 +1,50 @@
+// Функция для автоматического изменения высоты textarea
+function autoResizeTextarea() {
+  let textareas = document.querySelectorAll(
+    'textarea.protocol_fields_title, \
+     textarea.protocol_fields_no, \
+     textarea.protocol_fields_item, \
+     textarea.protocol_fields_responsible, \
+     textarea.protocol_fields_deadline, \
+     textarea.protocol_fields_status, \
+     textarea.protocol_fields_notes, \
+     textarea.new-field' // Добавляем новый класс textarea.new-field
+  );
 
-$(document).ready(function() {
-  var rowCount = 0;
+  textareas.forEach(textarea => {
+    textarea.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = this.scrollHeight + 'px';
+    });
+  });
+}
 
-  // Add new fields button
-  $("#add-row").click(function() {
-    var row = '<div class="form-row">' +
-                '<div class="form-group col-md-1">' +
-                  '<input type="text" name="no_' + rowCount + '" class="form-control" placeholder="No">' +
-                '</div>' +
-                '<div class="form-group col-md-4">' +
-                  '<input type="text" name="item_' + rowCount + '" class="form-control" placeholder="Item">' +
-                '</div>' +
-                '<div class="form-group col-md-3">' +
-                  '<input type="text" name="responsible_' + rowCount + '" class="form-control" placeholder="Responsible">' +
-                '</div>' +
-                '<div class="form-group col-md-2">' +
-                  '<input type="date" name="deadline_' + rowCount + '" class="form-control" placeholder="Deadline">' +
-                '</div>' +
-                '<div class="form-group col-md-2">' +
-                  '<input type="text" name="status_' + rowCount + '" class="form-control" placeholder="Status">' +
-                '</div>' +
-              '</div>';
-    $('#form-rows').append(row);
-    rowCount++;
+
+// Function for cloning table row
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  autoResizeTextarea();
+  $("#addRowBtn").on("click", function() {
+    var $rowTemplate = $("#row-template");
+    var $newRow = $rowTemplate.clone(true, true);
+    $newRow.find(":input").val("");
+    $newRow.removeAttr("id");
+    $newRow.appendTo("table");
+
+// Applying styles to textarea in the cloned row
+    $newRow.find('textarea').addClass('new-field').css({
+      'resize': 'none',
+      'outline': 'none',
+      'box-sizing': 'border-box',
+      'height': '100%'
+    });
+    autoResizeTextarea(); // Calling the function for automatic resizing of textarea height
   });
 
-  // Form submission
-  $('#protocol-form').submit(function(event) {
-    event.preventDefault();
-    var formData = $(this).serialize();
-
-    // Add new fields data
-    $('.form-row').each(function(index) {
-      var no = $(this).find('input[name^="no"]').val();
-      var item = $(this).find('input[name^="item"]').val();
-      var responsible = $(this).find('input[name^="responsible"]').val();
-      var deadline = $(this).find('input[name^="deadline"]').val();
-      var status = $(this).find('input[name^="status"]').val();
-      formData += '&no_' + index + '=' + no;
-      formData += '&item_' + index + '=' + item;
-      formData += '&responsible_' + index + '=' + responsible;
-      formData += '&deadline_' + index + '=' + deadline;
-      formData += '&status_' + index + '=' + status;
-    });
-
-    // Submit
-fetch('/submit', {
-  method: 'POST',
-  body: formData,
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-})
-.then(response => {
-  if (response.ok) {
-    console.log('Form submitted successfully');
-  } else {
-    console.error('Form submission failed');
-  }
-})
-.catch(error => {
-  console.error('Error submitting form:', error);
+// Form handler
+  $("#create_protocol_form").on("submit", function() {
+    // code
+  });
 });
+
+
