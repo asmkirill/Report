@@ -9,7 +9,7 @@ function autoResizeTextarea() {
      textarea.protocol_fields_deadline, \
      textarea.protocol_fields_status, \
      textarea.protocol_fields_notes, \
-     textarea.new-field' 
+     textarea.new-field'
   );
 
   textareas.forEach(textarea => {
