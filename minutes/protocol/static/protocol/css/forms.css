@@ -20,6 +20,7 @@ td {
     height: auto;
 }
 
+
 /*  BASIC PROTOCOL FIELDS downloaded by default  */
 
 .basic_protocol_fields {
@@ -41,8 +42,7 @@ td {
 }
 
 
-
-/* Styles of form.py elements */
+/* Styles of form.py textareas elements */
 
 .protocol_fields_title {
     width: 100%;
@@ -53,8 +53,19 @@ td {
     margin: 0;
     padding: 0;
 }
+.protocol_fields_notes {
+    border: solid 1px #444444;
+    vertical-align: top;
+    border: 0;
+    width: 100%;
+    min-width: 43rem;
+    margin: 1rem 0;
+    padding: 0;
+    display: block;
+}
 
-/*  line of textareas  */
+
+/*  line of five basic textareas  */
 
 .basic_protocol_fields {
   margin-top: 1rem;
@@ -106,12 +117,30 @@ td {
 }
 .td_last_3 { width: 14%; }
 
-.protocol_fields_notes {
-    vertical-align: top;
-    border: 0;
-    width: 100%;
-    min-width: 43rem;
-    margin: 0;
-    padding: 0;
-    display: block;
+.protocol_id_watermark {
+    margin: 1rem 0;
+    text-align: right;
+    color: #cccccc;
+}
+
+
+/* Handling events with protocol form  - BUTTON, Download */
+
+.handling_events_with_protocol {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.handling_events_with_protocol form{
+    float: left;
+}
+
+#btn btn-outline-success {
+    float: left;
+    margin: 1rem 0;
+}
+
+#download_protocol_link {
+    float: right;
+    margin: 0.34rem 0 0 2rem;
 }

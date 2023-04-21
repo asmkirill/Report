@@ -44,8 +44,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // Form handler
   $("#create_protocol_form").on("submit", function() {
-    // code
+    // js code
   });
 });
 
 
+
+// Function that displays the generated ID of the protocol in both the header and watermarks
+
+function protocol_generated_id_js() {
+    document.write('ID 003.04.14.0005')
+}

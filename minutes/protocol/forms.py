@@ -40,10 +40,3 @@ class ProtocolDataForm(ModelForm):
         }
 
 
-class ProtocolDataFormSet(BaseFormSet):
-    def add_fields(self, form, index):
-        form.fields['no'] = forms.Textarea()
-        form.fields['item'] = forms.Textarea()
-        form.fields['responsible'] = forms.Textarea()
-        form.fields['deadline'] = forms.Textarea()
-        form.fields['status'] = forms.Textarea()

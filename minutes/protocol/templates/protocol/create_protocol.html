@@ -3,50 +3,66 @@
 
 {% block header-logo %}
     <link rel="stylesheet" href="{% static 'protocol/css/forms.css' %}">
-    <script src="{% static 'protocol/js/forms.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <p>ID 003.04.14.0005</p>
+    <script src="{% static 'protocol/js/forms.js' %}"></script>
+    <p>
+        <script>
+            protocol_generated_id_js();
+        </script>
+    </p>
 {% endblock %}
 
 {% block content %}
+    <form id="create_protocol_form" method="post">
+        {% csrf_token %}
+        <button type="button" id="addRowBtn" class="btn btn-primary">Add new fields</button>
 
-<form id="create_protocol_form" method="post">
-    {% csrf_token %}
-    <button type="button" id="addRowBtn" class="btn btn-primary">Add new fields</button>
+        <div class="basic_protocol_fields">
+            {{ form.title }}
 
-    <div class="basic_protocol_fields">
-        {{ form.title }}
+            <table>
+                <tr id="row-template">
+                    <td class="td_no">
+                        {{ form.no }}
+                    </td>
+                    <td class="td_item">
+                        {{ form.item }}
+                    </td>
+                    <td class="td_last_3">
+                        {{ form.responsible }}
+                    </td>
+                    <td class="td_last_3">
+                        {{ form.deadline }}
+                    </td>
+                    <td class="td_last_3">
+                        {{ form.status }}
+                    </td>
+                </tr>
+            </table>
+            {{ form.notes }}
+        </div>
+    </form>
 
-        <table>
-            <tr id="row-template">
-                <td class="td_no">
-                    {{ form.no }}
-                </td>
-                <td class="td_item">
-                    {{ form.item }}
-                </td>
-                <td class="td_last_3">
-                    {{ form.responsible }}
-                </td>
-                <td class="td_last_3">
-                    {{ form.deadline }}
-                </td>
-                <td class="td_last_3">
-                    {{ form.status }}
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="5">
-                    {{ form.notes }}
-                </td>
-            </tr>
-        </table>
+    <div id="protocol_generated_id" class="protocol_id_watermark">
+        <script>
+                protocol_generated_id_js();
+        </script>
     </div>
-    <br />
-    <button type="submit" id="save-protocol" class="btn btn-outline-success">Save to database</button>
-</form>
+
+    <div class="handling_events_with_protocol">
+         <form method="post">
+            {% csrf_token %}
+            <button type="submit" id="save_protocol" class="btn btn-outline-success" form="create_protocol_form">
+                Save to database
+            </button>
+         </form>
+         <a href="{{ pdf_url }}" download id="download_protocol_link">Download PDF</a>
+    </div>
 
 {% endblock %}
 
-<script src="{% static 'protocol/js/forms.js' %}"></script>
+
+
+
+
+
