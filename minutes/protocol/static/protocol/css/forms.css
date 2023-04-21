@@ -129,15 +129,11 @@ td {
 .handling_events_with_protocol {
     display: inline-block;
     vertical-align: middle;
+    padding: 0 0 3rem 0;
 }
 
 .handling_events_with_protocol form{
     float: left;
-}
-
-#btn btn-outline-success {
-    float: left;
-    margin: 1rem 0;
 }
 
 #download_protocol_link {

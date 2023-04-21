@@ -11,7 +11,7 @@ body {
 }
 
 .header-logo form {
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
     margin-right: 0.1rem;
     float: left;
     width: 19.75rem;
@@ -45,10 +45,23 @@ body {
 }
 
 h1 {
+    font-size: 2.4rem;
     float: left;
-    margin-top: 0.4rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.7rem;
     margin-right: 0.6rem;
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.logo_link_to_index {
+    float: left;
+    margin-top: 0 0.6rem 0 0;
+    text-decoration: none;
+    color: #eeeeee;
+}
+.logo_link_to_index:hover,
+.logo_link_to_index:visited {
     color: #eeeeee;
 }
 

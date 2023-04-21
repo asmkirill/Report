@@ -1,10 +1,15 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
+{% block h1 %}
+    <a href="{% url 'index' %}" class="logo_link_to_index">Protocol</a>
+{% endblock %}
+
 {% block header-logo %}
     <link rel="stylesheet" href="{% static 'protocol/css/forms.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'protocol/js/forms.js' %}"></script>
+
     <p>
         <script>
             protocol_generated_id_js();

@@ -17,25 +17,23 @@
 
     <div class="header-logo">
         <div class="header-container">
-            <h1>Protocol</h1>
+            <h1>{% block h1 %}{% endblock %}</h1>
+
             {% block header-logo %}
             {% endblock %}
         </div>
     </div>
 
     {% block header-slogan %}
-
     {% endblock %}
 
     <nav>
         {% block nav %}
-
         {% endblock %}
     </nav>
 
     <div class="container">
         {% block content %}
-
         {% endblock %}
     </div>
 
