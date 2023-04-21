@@ -1,4 +1,5 @@
-// Функция для автоматического изменения высоты textarea
+// Function for automatic resizing of height for protocol textareas
+
 function autoResizeTextarea() {
   let textareas = document.querySelectorAll(
     'textarea.protocol_fields_title, \
@@ -8,7 +9,7 @@ function autoResizeTextarea() {
      textarea.protocol_fields_deadline, \
      textarea.protocol_fields_status, \
      textarea.protocol_fields_notes, \
-     textarea.new-field' // Добавляем новый класс textarea.new-field
+     textarea.new-field' 
   );
 
   textareas.forEach(textarea => {
@@ -20,7 +21,7 @@ function autoResizeTextarea() {
 }
 
 
-// Function for cloning table row
+// Function for cloning table rows with textareas
 
 document.addEventListener("DOMContentLoaded", function(event) {
   autoResizeTextarea();
