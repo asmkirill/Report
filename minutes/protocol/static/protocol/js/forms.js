@@ -42,12 +42,39 @@ document.addEventListener("DOMContentLoaded", function(event) {
     autoResizeTextarea(); // Calling the function for automatic resizing of textarea height
   });
 
-// Form handler
-  $("#create_protocol_form").on("submit", function() {
-    // js code
+
+//----------------------------------- new code 23.04.2023
+ // Form handler
+  $("#create_protocol_form").on("submit", function(e) {
+    e.preventDefault(); // Prevent form submission
+
+    // Serialize form data
+    var formData = $(this).serialize();
+
+    // Send data to server
+    $.ajax({
+      url: '/protocol/create_protocol/', // URL of Django view that will handle the request
+      type: 'POST',
+      data: formData,
+      success: function(response) {
+        if (response.success) {
+          // Handle successful response
+          console.log('Data successfully saved in the database!');
+        } else {
+          // Handle errors
+          console.log('Error:', response.errors);
+        }
+      },
+      error: function(xhr, status, error) {
+        // Handle AJAX errors
+        console.log('AJAX Error:', error);
+      }
+    });
   });
 });
 
+
+//-----------------
 
 
 // Function that displays the generated ID of the protocol in both the header and watermarks
@@ -55,3 +82,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function protocol_generated_id_js() {
     document.write('ID 003.04.14.0005')
 }
+
+//
+//// Form handler
+//  $("#create_protocol_form").on("submit", function() {
+//    // js code
+//  });
+//});

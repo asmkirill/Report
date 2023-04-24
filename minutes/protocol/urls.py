@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import create_protocol
+from . import views
 
 
 urlpatterns = [
-    path('create_protocol/', create_protocol, name='create_protocol'),
+    path('create_protocol/', views.create_protocol, name='create_protocol'),
 ]

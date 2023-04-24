@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, Textarea, BaseFormSet
+from django.forms import ModelForm, Textarea
 from .models import ProtocolData
 
 
@@ -38,5 +38,4 @@ class ProtocolDataForm(ModelForm):
                 'placeholder': 'Other notes', 'rows': 2
             })
         }
-
 

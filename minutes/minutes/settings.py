@@ -11,6 +11,9 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'users',
+    # 'social_django',
+    # 'auth_utils',
     'main',
     'protocol',
     'django.contrib.admin',
@@ -30,6 +33,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'minutes.urls'
@@ -45,10 +49,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'social_django.context_processors.backends',
+                # 'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
+
+AUTH_USER_MODEL = "users.CustomUser"
+
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
 WSGI_APPLICATION = 'minutes.wsgi.application'
 
