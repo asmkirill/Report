@@ -1,14 +1,31 @@
+
 venv/
 
+# Security
 .env
-
 minutes/manage.py
 
-.idea/
 
+# PyCharm
+.idea/
+.python-version
+
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+.tox
+
+
+# Any cache
 minutes/minutes/__pycache__/
 minutes/protocol/__pycache__/
 minutes/main/__pycache__/
 minutes/protocol/migrations/__pycache__/
 
+*.pyc
+
+
+# Local files and folders
 local_files_for_report/
+
