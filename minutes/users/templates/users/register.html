@@ -1,6 +1,11 @@
 {% extends 'main/layout.html' %}
-{% load crispy_forms_tags %}
+{% load static %}
 
+{% block static_files %}
+    <link rel="stylesheet" href="{% static 'users/css/register.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'users/js/register.js' %}"></script>
+{% endblock %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -20,51 +25,45 @@
     </div>
 {% endblock %}
 
-{% block nav %}
-    <a href="{% url 'index' %}" class="btn btn-success">Home</a>
-{% endblock %}
-
 {% block content %}
-    <div>
+
+    <div class="register_new_user_field">
         <form method="POST">
             {% csrf_token %}
 
-            <legend class="border-bottom mb-4">Join Today</legend>
+            <div class="register_new_user_field_shield">
+                <div class="label_form">
+                    {{ form.first_name.label_tag }}
+                    {{ form.last_name.label_tag }}
+                    {{ form.username.label_tag }}
+                    {{ form.email.label_tag }}
+                    {{ form.password1.label_tag }}
+                    {{ form.password2.label_tag }}
+                </div>
 
-            {{ form.first_name.label_tag }} {{ form.first_name }}
-            <br/>
-            {{ form.last_name.label_tag }} {{ form.last_name }}
-            <br/>
-            {{ form.username.label_tag }} {{ form.username }}
-            <br/>
-            {{ form.email.label_tag }} {{ form.email }}
-            <br/>
-            {{ form.password1.label_tag }} {{ form.password1 }}
-            <br/>
-            {{ form.password2.label_tag }} {{ form.password2 }}
+                <div class="input_form">
+                    {{ form.first_name }}
+                    {{ form.last_name }}
+                    {{ form.username }}
+                    {{ form.email }}
+                    {{ form.password1 }}
+                    {{ form.password2 }}
+                </div>
+            </div>
 
+            <p>By registering, you accept the Terms of Service and Privacy Notice</p>
 
-            <br/>
-            <br/>
-
-            By registering, you accept the Terms of Service and Privacy Notice
-
-            <br/>
-            <br/>
-
-            <div class="form-group">
+            <div class="register_button_area">
                 <button class="btn btn-outline-info" type="submit">Register now</button>
             </div>
+
         </form>
 
-                <br/>
-                <br/>
-
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Already registered to Protocol? <a class="ml-2" href="/login">Log In</a>
-            </small>
+        <div class="register_other_info">
+            Already registered to Protocol? <a class="ml-2" href="/login">Log In</a>
         </div>
+
     </div>
+
 {% endblock %}
 

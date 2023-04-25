@@ -1,5 +1,6 @@
-// Function for automatic resizing of height for protocol textareas
+/*  app:  protocol/static/forms.js  */
 
+// Function for automatic resizing of height for protocol textareas
 function autoResizeTextarea() {
   let textareas = document.querySelectorAll(
     'textarea.protocol_fields_title, \
@@ -11,7 +12,6 @@ function autoResizeTextarea() {
      textarea.protocol_fields_notes, \
      textarea.new-field'
   );
-
   textareas.forEach(textarea => {
     textarea.addEventListener('input', function() {
       this.style.height = 'auto';
@@ -22,7 +22,6 @@ function autoResizeTextarea() {
 
 
 // Function for cloning table rows with textareas
-
 document.addEventListener("DOMContentLoaded", function(event) {
   autoResizeTextarea();
   $("#addRowBtn").on("click", function() {
@@ -43,14 +42,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 
-//----------------------------------- new code 23.04.2023
- // Form handler
+
+// Draft: This section is under development ----------------------------23.04.2023
+
   $("#create_protocol_form").on("submit", function(e) {
     e.preventDefault(); // Prevent form submission
-
-    // Serialize form data
     var formData = $(this).serialize();
-
     // Send data to server
     $.ajax({
       url: '/protocol/create_protocol/', // URL of Django view that will handle the request
@@ -58,34 +55,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
       data: formData,
       success: function(response) {
         if (response.success) {
-          // Handle successful response
           console.log('Data successfully saved in the database!');
-        } else {
-          // Handle errors
+        }
+        else {
           console.log('Error:', response.errors);
         }
       },
       error: function(xhr, status, error) {
-        // Handle AJAX errors
         console.log('AJAX Error:', error);
       }
     });
   });
 });
 
-
-//-----------------
+//-----------------------------------------------------------
 
 
 // Function that displays the generated ID of the protocol in both the header and watermarks
-
 function protocol_generated_id_js() {
-    document.write('ID 003.04.14.0005')
+    document.write('DK 000 256.12')
 }
-
-//
-//// Form handler
-//  $("#create_protocol_form").on("submit", function() {
-//    // js code
-//  });
-//});

@@ -1,7 +1,20 @@
+/*  app:  main/static/main.css  */
 
 body {
     background: #cccccc;
 }
+
+.log_in_link,
+.log_in_link:hover,
+.log_in_link:visited {
+    color: #eeeeee;
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0.3rem 0 0;
+    text-align: right;
+    float: right;
+}
+
 
 .header-logo {
     height: auto;

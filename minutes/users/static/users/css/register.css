@@ -1,0 +1,59 @@
+/*  app:  users/static/register.css  */
+
+.register_new_user_field {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+
+.register_new_user_field_shield {
+    padding-top: 2rem;
+    text-align: center;
+    width: 30rem;
+    height: 20rem;
+    margin: 0 auto;
+}
+
+.register_new_user_field label,
+.register_new_user_field input {
+    margin: 0 0 1.4rem 0;
+    display: block;
+    width: 100%;
+    height: 2.3rem;
+}
+
+.label_form {
+    margin: 0;
+    padding: 0.4rem 1.4rem 0 0;
+    width: 12rem;
+    height: 23rem;
+    text-align: right;
+    float: left;
+}
+
+.input_form {
+    margin:0;
+    width: 15rem;
+    height: 23rem;
+    float: left;
+}
+
+.register_new_user_field p,
+.register_button_area,
+.register_other_info {
+    margin: 0 0 2rem 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    float: left;
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+
+.border-top pt-3 {
+    float: left;
+    display: block;
+    width: 100%;
+}
