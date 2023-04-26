@@ -18,11 +18,11 @@
     {% include 'main/includes/messaging.html' %}
     <div class="header-logo">
         <div class="header-container">
-            <h1>
-                {% block h1 %}
-                {% endblock %}
-            </h1>
-                <a href="{% url 'register' %}" class="log_in_link">Log in</a>
+            <a href="{% url 'index' %}" class="logo_link_to_index {% if request.resolver_match.url_name == 'index' %}disabled{% endif %}">
+                Protocol
+            </a>
+
+            <a href="{% url 'register' %}" class="log_in_link">Log in</a>
 
             {% block header-logo %}
             {% endblock %}

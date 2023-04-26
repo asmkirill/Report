@@ -9,7 +9,7 @@ class DocumentIdentifierForm(ModelForm):
 
         widgets = {
             'identifier': TextInput(attrs={
-                'class': 'form-control',
+                'class': 'identifier_input',
                 'placeholder': 'Identifier of document',
             })
         }

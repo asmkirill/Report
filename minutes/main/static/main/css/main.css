@@ -10,36 +10,44 @@ body {
 .log_in_link,
 .log_in_link:hover,
 .log_in_link:visited {
-    color: #eeeeee;
-    text-decoration: none;
     display: block;
-    margin: 0.5rem 0.3rem 0 0;
     text-align: right;
     float: right;
+    margin: 0.5rem 0.2rem 0 0;
+    font-weight: 360;
+    color: #aaaaaa;
+    text-decoration: none;
 }
-
 
 .header-logo {
     height: auto;
     overflow: auto;
     padding: 0;
     background: #00254d;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(51, 51, 51, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(51, 51, 51, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(51, 51, 51, 0.6);
 }
+
+/* header ID form */
 
 .header-logo form {
-    margin-top: 0.85rem;
-    margin-right: 0.1rem;
+    margin-top: 0.75rem;
     float: left;
-    width: 19.75rem;
+    width: 15rem;
 }
 
-.header-logo .form-control{
-    width: 16rem;
+.identifier_input {
+    padding: 0 0.3rem;
+    width: 12rem;
+    height: 2.1rem;
     float: left;
+
 }
 
 .header-logo button {
     float: right;
+    height: 2.1rem;
 }
 
 .header-slogan {
@@ -60,37 +68,40 @@ body {
     width: 80%;
 }
 
-h1 {
-    font-size: 2.4rem;
-    float: left;
-    margin-top: 0.5rem;
-    margin-bottom: 0.7rem;
-    margin-right: 1rem;
-    color: #eeeeee;
-}
+/* Using the logotype as a text and link to the home page - LOGO */
 
 .logo_link_to_index {
+    font-size: 2.1rem;
+    font-weight: 520;
     float: left;
-    margin-top: 0 0.6rem 0 0;
+    margin: 0 1rem 0.2rem 0;
+    padding: 0;
     text-decoration: none;
     color: #eeeeee;
 }
+
 .logo_link_to_index:hover,
 .logo_link_to_index:visited {
     color: #eeeeee;
 }
 
-h2 {
-    float: left;
-    color: #aaaaaa;
-    font-size: 1rem;
+a.logo_link_to_index.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+h1 {
     width: 100%;
+    float: left;
     text-align: left;
-    font-weight: 300;
+    margin-left: 0.06rem;
+    font-size: 1rem;
+    font-weight: 360;
+    color: #aaaaaa;
 }
 
 nav {
-    margin: 0.6rem auto;
+    margin: 0.8rem auto;
     padding: 0;
     width: 80%;
     text-align: left;

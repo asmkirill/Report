@@ -2,15 +2,11 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block h1 %}
-    Protocol
-{% endblock %}
-
 {% block header-logo %}
     <form method="post">
         {% csrf_token %}
         {{ form.identifier }}
-        <button class="btn btn-secondary" type="submit">Get</button>
+        <button class="btn btn-secondary btn-sm" type="submit">Get</button>
         <span>{{ error }}</span>
     </form>
 {% endblock %}
@@ -18,18 +14,17 @@
 {% block header-slogan %}
     <div class="header-slogan">
         <div class="header-container">
-            <h2>An educational and applied project aimed at creating an interactive website</h2>
+            <h1>An educational and applied project aimed at creating an interactive website</h1>
         </div>
     </div>
 {% endblock %}
 
 {% block nav %}
-    <a href="{% url 'create_protocol' %}" class="btn btn-success">Create new protocol</a>
+    <a href="{% url 'create_protocol' %}" class="btn btn-success btn-sm">Create new protocol</a>
 {% endblock %}
 
 {% block content %}
     <div class="project_description">
-        <br/>
         <br/>
         <h3>This is a description of a Django project.</h3>
         <br/>
