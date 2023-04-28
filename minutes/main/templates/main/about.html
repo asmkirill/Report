@@ -18,14 +18,13 @@
 {% endblock %}
 
 {% block nav %}
-    <a href="{% url 'create_protocol' %}" class="btn btn-success">Create new protocol</a>
+    {% include 'main/includes/navbar.html' %}
 {% endblock %}
 
 {% block content %}
     <div class="project_description">
         <br/>
         <h3>About page “Under Construction”</h3>
-        <br/>
         <br/>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales molestie volutpat.
         Quisque vehicula, est sit amet pharetra condimentum, nibh leo lacinia justo, non aliquet metus nunc non tortor.
