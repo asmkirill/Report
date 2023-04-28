@@ -26,15 +26,3 @@ sqlparse==0.4.3
 tzdata==2023.3
 urllib3==1.26.15
 
-
-<footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link px-2 text-muted {% if request.resolver_match.url_name == 'index' %}disabled{% endif %}">Home</a></li>
-        <li class="nav-item"><a href="{% url 'features' %}" class="nav-link px-2 text-muted {% if request.resolver_match.url_name == 'features' %}disabled{% endif %}">Features</a></li>
-        <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link px-2 text-muted {% if request.resolver_match.url_name == 'pricing' %}disabled{% endif %}">Pricing</a></li>
-        <li class="nav-item"><a href="{% url 'faqs' %}" class="nav-link px-2 text-muted {% if request.resolver_match.url_name == 'faqs' %}disabled{% endif %}">FAQs</a></li>
-        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted {% if request.resolver_match.url_name == 'about' %}disabled{% endif %}">About</a></li>
-        <li class="nav-item"><a href="/admin" class="nav-link px-2 text-muted">Admin</a></li>
-    </ul>
-    <p class="text-center text-muted">&copy; 2022 Protocol, Inc</p>
-</footer>
