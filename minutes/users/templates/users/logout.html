@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header-logo %}
+{% endblock %}
+
+{% block header-slogan %}
+    <div class="header-slogan">
+        <div class="header-container">
+            <h1>About an educational and applied project aimed at creating an interactive website</h1>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+
+    <h3>You have been logged out</h3>
+    <div class="border-top pt-3"  style="min-height:12rem;"> <!-- register.css needed -->
+        <br/>
+        <a href="{% url 'login' %}">Log In Again</a>
+    </div>
+
+{% endblock %}
+
+
+
+

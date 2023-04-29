@@ -10,56 +10,50 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block header-logo %}
-
 {% endblock %}
 
 {% block header-slogan %}
     <div class="header-slogan">
         <div class="header-container">
-            <h1>Register an account and save documents in your personal cabinet</h1>
+            <h1>About an educational and applied project aimed at creating an interactive website</h1>
         </div>
     </div>
 {% endblock %}
 
-{% block content %}
+{% block nav %}
+{% endblock %}
 
+{% block content %}
     <div class="register_new_user_field">
         <form method="POST">
             {% csrf_token %}
 
             <div class="register_new_user_field_shield">
                 <div class="label_form">
-                    {{ form.first_name.label_tag }}
-                    {{ form.last_name.label_tag }}
                     {{ form.username.label_tag }}
-                    {{ form.email.label_tag }}
-                    {{ form.password1.label_tag }}
-                    {{ form.password2.label_tag }}
+                    {{ form.password.label_tag }}
                 </div>
 
                 <div class="input_form">
-                    {{ form.first_name }}
-                    {{ form.last_name }}
                     {{ form.username }}
-                    {{ form.email }}
-                    {{ form.password1 }}
-                    {{ form.password2 }}
+                    {{ form.password }}
                 </div>
             </div>
 
-            <p>By registering, you accept the Terms of Service and Privacy Notice</p>
+            <p><a href="#">Password Recovery</a></p>
 
             <div class="register_button_area">
-                <button class="btn btn-outline-info" type="submit">Register now</button>
+                <button class="btn btn-outline-info" type="submit">Login</button>
             </div>
 
         </form>
 
         <div class="register_other_info">
-            Already registered to Protocol? <a class="ml-2" href="{% url 'login' %}">Log In</a>
+            <a class="ml-2" href="{% url 'register' %}">Create an account</a>
         </div>
-
     </div>
-
 {% endblock %}
+
+
+
 

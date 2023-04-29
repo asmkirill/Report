@@ -1,5 +1,8 @@
 /*  app:  users/static/register.css  */
 
+
+/*  register.html --- form for New Users */
+
 .register_new_user_field {
     text-align: center;
     width: 100%;
@@ -11,7 +14,6 @@
     padding-top: 2rem;
     text-align: center;
     width: 30rem;
-    height: 20rem;
     margin: 0 auto;
 }
 
@@ -27,7 +29,6 @@
     margin: 0;
     padding: 0.4rem 1.4rem 0 0;
     width: 12rem;
-    height: 23rem;
     text-align: right;
     float: left;
 }
@@ -35,7 +36,6 @@
 .input_form {
     margin:0;
     width: 15rem;
-    height: 23rem;
     float: left;
 }
 
@@ -51,8 +51,10 @@
     color: #888888;
 }
 
-.border-top pt-3 {
-    float: left;
-    display: block;
-    width: 100%;
+
+/*  messaging
+a.close {
+    text-decoration: none;
 }
+
+ login.html --- advanced login styles */
