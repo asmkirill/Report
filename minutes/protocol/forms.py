@@ -11,7 +11,7 @@ class ProtocolDataForm(ModelForm):
         widgets = {
             'title': Textarea(attrs={
                 'class': 'protocol_fields_title',
-                'placeholder': 'Title', 'rows': 2
+                'placeholder': 'Title of new document', 'rows': 2
             }),
             'no': Textarea(attrs={
                 'class': 'protocol_fields_no',

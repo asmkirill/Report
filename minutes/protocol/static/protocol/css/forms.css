@@ -9,6 +9,7 @@
 }
 
 #create_protocol_form {
+    margin-top: 25px;
     background: #ffffff;
 }
 
@@ -22,6 +23,12 @@ td {
 
 
 /*  BASIC PROTOCOL FIELDS downloaded by default  */
+
+#row_default_title_line {
+    font-weight: 700;
+    text-align: left;
+
+}
 
 .basic_protocol_fields {
     margin-top: 1rem;
@@ -39,6 +46,12 @@ td {
     box-sizing: border-box;
     overflow-y: auto;
     height: auto;
+}
+
+#addRowBtn {
+    margin: 1rem 0 0.6rem 0;
+    float: right;
+    display: block;
 }
 
 
@@ -118,25 +131,28 @@ td {
 .td_last_3 { width: 14%; }
 
 .protocol_id_watermark {
-    margin: 1rem 0;
+    margin: 2.5rem 0 0 0;
     text-align: right;
     color: #cccccc;
 }
 
 
-/* Handling events with protocol form  - BUTTON, Download */
+/* Handling events with protocol form  - BUTTON, Download
+styles for 'block bottom_nav_menu' in 'main.css'
+*/
 
 .handling_events_with_protocol {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0 0 3rem 0;
+    display: block;
+    text-align: right;
+    float: right;
 }
 
 .handling_events_with_protocol form{
-    float: left;
+    margin: 2rem 0 0 0;
+    float: right;
 }
 
 #download_protocol_link {
     float: right;
-    margin: 0.34rem 0 0 2rem;
+    margin: 2.34rem 2rem 0 0;
 }

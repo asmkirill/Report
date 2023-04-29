@@ -18,13 +18,26 @@
 {% block content %}
     <form id="create_protocol_form" method="post">
         {% csrf_token %}
-        <button type="button" id="addRowBtn" class="btn btn-primary">Add new fields</button>
-        <br />
-        <br />
         <div class="basic_protocol_fields">
             {{ form.title }}
-
             <table>
+                <tr id="row_default_title_line">
+                    <td class="td_no">
+                        No.
+                    </td>
+                    <td class="td_item">
+                        Item
+                    </td>
+                    <td class="td_last_3">
+                        Responsible
+                    </td>
+                    <td class="td_last_3">
+                        Deadline
+                    </td>
+                    <td class="td_last_3">
+                        Status
+                    </td>
+                </tr>
                 <tr id="row-template">
                     <td class="td_no">
                         {{ form.no }}
@@ -43,17 +56,22 @@
                     </td>
                 </tr>
             </table>
-            {{ form.notes }}
+            <button type="button" id="addRowBtn" class="btn btn-outline-secondary btn-sm">Add new fields</button>
+            <div class="notes_border_field">
+                {{ form.notes }}
+            </div>
         </div>
     </form>
 
     <div id="protocol_generated_id" class="protocol_id_watermark">
-        www.protocoller.org&nbsp;
         <script>
                 protocol_generated_id_js();
         </script>
     </div>
 
+{% endblock %}
+
+{% block bottom_nav_menu %}
     <div class="handling_events_with_protocol">
          <form method="post">
             {% csrf_token %}
@@ -63,9 +81,7 @@
          </form>
          <a href="{{ pdf_url }}" download id="download_protocol_link">Download PDF</a>
     </div>
-
 {% endblock %}
-
 
 
 
