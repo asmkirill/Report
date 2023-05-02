@@ -54,8 +54,6 @@ TEMPLATES = [
     },
 ]
 
-
-
 AUTH_USER_MODEL = "users.CustomUser"
 
 CAPTCHA_SITE_KEY = os.getenv('CAPTCHA_SITE_KEY')

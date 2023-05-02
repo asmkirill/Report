@@ -4,7 +4,7 @@
     float: left;
     margin: 0.31rem 0 0 0;
     font-size: 1.8rem;
-    color: #aaaaaa;
+    color: #888888;
     font-weight: 550;
 }
 
@@ -145,6 +145,7 @@ styles for 'block bottom_nav_menu' in 'main.css'
     display: block;
     text-align: right;
     float: right;
+    height: 100px;
 }
 
 .handling_events_with_protocol form{

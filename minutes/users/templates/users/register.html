@@ -10,7 +10,6 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block header-logo %}
-
 {% endblock %}
 
 {% block header-slogan %}
@@ -22,11 +21,9 @@
 {% endblock %}
 
 {% block content %}
-
-    <div class="register_new_user_field">
-        <form method="POST">
+    <form method="POST">
+        <div class="register_new_user_field">
             {% csrf_token %}
-
             <div class="register_new_user_field_shield">
                 <div class="label_form">
                     {{ form.first_name.label_tag }}
@@ -36,7 +33,6 @@
                     {{ form.password1.label_tag }}
                     {{ form.password2.label_tag }}
                 </div>
-
                 <div class="input_form">
                     {{ form.first_name }}
                     {{ form.last_name }}
@@ -46,19 +42,19 @@
                     {{ form.password2 }}
                 </div>
             </div>
-
-            <p>By registering, you accept the Terms of Service and Privacy Notice</p>
-{{ form.captcha }}
-            <div class="register_button_area">
-                <button class="btn btn-outline-info" type="submit">Register now</button>
-            </div>
-
-        </form>
-
-        <div class="register_other_info">
-            Already registered to Protocol? <a class="ml-2" href="{% url 'login' %}">Log In</a>
         </div>
-
+        <div class="privacy_notice">
+            By clicking Create Account, you agree to the
+            <a  href="#">Terms of Use</a>
+            and <a href="#"> Privacy Policy</a>
+        </div>
+        <div class="recaptcha_line">
+            {{ form.captcha }}
+        </div>
+        <button class="btn btn-secondary reg_log_btn" type="submit">Register now</button>
+    </form>
+    <div class="register_other_info">
+        Already registered to Protocol? <a class="ml-2" href="{% url 'login' %}">Log In</a>
     </div>
 
 {% endblock %}

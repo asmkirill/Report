@@ -15,7 +15,7 @@
 {% block header-slogan %}
     <div class="header-slogan">
         <div class="header-container">
-            <h1>About an educational and applied project aimed at creating an interactive website</h1>
+            <h1>Log in to the project aimed at creating an interactive website</h1>
         </div>
     </div>
 {% endblock %}
@@ -25,51 +25,27 @@
 
 {% block content %}
     <form method="POST">
-        <table class="register_new_user_field">
-            <tr>
-                <td colspan="3">
-                    {% csrf_token %}
-                    <div class="register_new_user_field_shield">
-                        <div class="label_form">
-                            {{ form.username.label_tag }}
-                            {{ form.password.label_tag }}
-                        </div>
-                        <div class="input_form">
-                            {{ form.username }}
-                            {{ form.password }}
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="2">
-                    <a href="#" class="password_recovery">Password Recovery</a>
-                </td>
-            </tr>
-            <tr>
-                <td width="40%">
-                </td>
-                <td width="60%" colspan="2">
-                    {{ form.captcha }}
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="2">
-                    <button class="btn btn-success loginbtn" type="submit">Login</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td colspan="2">
-                    <p class="create_account_suggestion">
-                        Don't have an account yet? <a  href="{% url 'register' %}">Create an account</a>
-                    </p>
-                </td>
-            </tr>
-        </table>
+        <div class="register_new_user_field">
+            {% csrf_token %}
+            <div class="register_new_user_field_shield">
+                <div class="label_form">
+                    {{ form.username.label_tag }}
+                    {{ form.password.label_tag }}
+                </div>
+                <div class="input_form">
+                    {{ form.username }}
+                    {{ form.password }}
+                </div>
+            </div>
+        </div>
+        <a href="#" class="password_recovery">Password Recovery</a>
+        <div class="recaptcha_line">
+            {{ form.captcha }}
+        </div>
+        <button class="btn btn-success reg_log_btn" type="submit">Login</button>
+        <p class="register_other_info">
+            Don't have an account yet? <a  href="{% url 'register' %}">Create Account</a>
+        </p>
     </form>
 {% endblock %}
 

@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 Decorator for views that checks that the user is NOT logged in, redirecting
 to the homepage if necessary by default.
 """
+
 def user_not_authenticated(function=None, redirect_url='/'):
 
     def decorator(view_func):

@@ -41,10 +41,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     autoResizeTextarea(); // Calling the function for automatic resizing of textarea height
   });
 
-
-
-// Draft: This section is under development ----------------------------23.04.2023
-
   $("#create_protocol_form").on("submit", function(e) {
     e.preventDefault(); // Prevent form submission
     var formData = $(this).serialize();
@@ -68,10 +64,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 });
 
-//-----------------------------------------------------------
-
 
 // Function that displays the generated ID of the protocol in both the header and watermarks
 function protocol_generated_id_js() {
-    document.write('DK 000 256.12')
+    document.write('RRK 2223 256.12')
 }

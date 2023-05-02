@@ -5,7 +5,7 @@
 
 .register_new_user_field {
     text-align: center;
-    width: 100%;
+    width: 90%;
     height: auto;
     overflow: auto;
 }
@@ -21,14 +21,14 @@
 .register_new_user_field input {
     margin: 1.6rem 0 0 0;
     display: block;
-    width: 100%;
+    width: 90%;
     height: 2.3rem;
 }
 
 .label_form {
     margin: 0;
     padding: 0.4rem 1.4rem 0 0;
-    width: 12rem;
+    width: 13rem;
     text-align: right;
     float: left;
 }
@@ -39,25 +39,29 @@
     float: left;
 }
 
+.recaptcha_line {
+    display: table;
+    width: 100%;
+    padding-left: 35%;
+}
 
-/*  login.html --- advanced login styles */
-
+/* Temporary centering for layout adjustments -- for login and register */
+.privacy_notice,
+.register_button_area,
+.register_other_info,
 .password_recovery {
-    margin: 0.2rem 0 2rem 11rem;
-    float: left;
+    display: table;
+    margin: 1rem auto 1.8rem auto;
+    width: 100%;
+    text-align: center;
     font-size: 0.8rem;
     color: #888888;
 }
 
-.create_account_suggestion {
-    margin: 1.5rem 0;
-    float: left;
-    font-size: 0.8rem;
-    color: #888888;
-}
-
-.loginbtn {
-    margin: 2rem 0 0 7rem;
-    float: left;
+.reg_log_btn {
+    display: table;
+    margin: 1.5rem auto 2rem auto;
+    text-align: center;
+    width: 12rem;
 }
 
