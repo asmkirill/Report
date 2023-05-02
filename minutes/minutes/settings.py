@@ -11,6 +11,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'captcha',
     'users',
     'main',
     'protocol',
@@ -57,9 +58,11 @@ TEMPLATES = [
 
 AUTH_USER_MODEL = "users.CustomUser"
 
-# AUTHENTICATION_BACKENDS = (
-#     'django.contrib.auth.backends.ModelBackend',
-# )
+CAPTCHA_SITE_KEY = os.getenv('CAPTCHA_SITE_KEY')
+CAPTCHA_PRIVATE_KEY = os.getenv('CAPTCHA_PRIVATE_KEY')
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+# RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', 'https': 'https://127.0.0.1:8000'}
 
 WSGI_APPLICATION = 'minutes.wsgi.application'
 

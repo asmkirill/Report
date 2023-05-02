@@ -24,34 +24,53 @@
 {% endblock %}
 
 {% block content %}
-    <div class="register_new_user_field">
-        <form method="POST">
-            {% csrf_token %}
-
-            <div class="register_new_user_field_shield">
-                <div class="label_form">
-                    {{ form.username.label_tag }}
-                    {{ form.password.label_tag }}
-                </div>
-
-                <div class="input_form">
-                    {{ form.username }}
-                    {{ form.password }}
-                </div>
-            </div>
-
-            <p><a href="#">Password Recovery</a></p>
-
-            <div class="register_button_area">
-                <button class="btn btn-outline-info" type="submit">Login</button>
-            </div>
-
-        </form>
-
-        <div class="register_other_info">
-            <a class="ml-2" href="{% url 'register' %}">Create an account</a>
-        </div>
-    </div>
+    <form method="POST">
+        <table class="register_new_user_field">
+            <tr>
+                <td colspan="3">
+                    {% csrf_token %}
+                    <div class="register_new_user_field_shield">
+                        <div class="label_form">
+                            {{ form.username.label_tag }}
+                            {{ form.password.label_tag }}
+                        </div>
+                        <div class="input_form">
+                            {{ form.username }}
+                            {{ form.password }}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <a href="#" class="password_recovery">Password Recovery</a>
+                </td>
+            </tr>
+            <tr>
+                <td width="40%">
+                </td>
+                <td width="60%" colspan="2">
+                    {{ form.captcha }}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <button class="btn btn-success loginbtn" type="submit">Login</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td colspan="2">
+                    <p class="create_account_suggestion">
+                        Don't have an account yet? <a  href="{% url 'register' %}">Create an account</a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </form>
 {% endblock %}
 
 
