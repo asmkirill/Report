@@ -25,4 +25,9 @@ soupsieve==2.4.1
 sqlparse==0.4.3
 tzdata==2023.3
 urllib3==1.26.15
+python.exe -m pip install --upgrade pip
+django-recaptcha
+recaptcha-client-1.0.6
 
+
+captcha~=0.4

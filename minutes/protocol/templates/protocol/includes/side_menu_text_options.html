@@ -1,0 +1,58 @@
+<div class="container_side_layout_protocol">
+    <a href="#" class="lang_country">
+        EN
+    </a>&nbsp;
+    <a href="#" onclick="changeText('Nr.')" class="lang_country">
+        DE
+    </a>&nbsp;
+    <a href="#" class="lang_country">
+        ES
+    </a>
+    <form id="font_form">
+        <label>
+            <input type="radio" name="font_options" value="Arial" checked>
+            Arial
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="font_options" value="Times New Roman">
+            Times
+        </label>
+    </form>
+    <form id="font_size_form">
+        <label>
+            <input type="radio" name="font_size_options" value="14px" checked>
+            14px
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="font_size_options" value="16px">
+            16px
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="font_size_options" value="18px">
+            18px
+        </label>
+    </form>
+    <script>
+    // Event handler for font size & font selection radio button
+    const fontForm = document.getElementById('font_form');
+    const fontSizeForm = document.getElementById('font_size_form');
+    const protocolForm = document.getElementById('create_protocol_form');
+    function changeFormFont(font) {
+        protocolForm.style.fontFamily = font;
+    }
+    function changeFormFontSize(fontSize) {
+        protocolForm.style.fontSize = fontSize;
+    }
+    fontForm.addEventListener('change', function(event) {
+        const selectedFont = event.target.value;
+        changeFormFont(selectedFont);
+    });
+    fontSizeForm.addEventListener('change', function(event) {
+        const selectedFontSize = event.target.value;
+        changeFormFontSize(selectedFontSize);
+    });
+    </script>
+</div>

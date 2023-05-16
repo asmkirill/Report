@@ -1,0 +1,7 @@
+{% if user.is_authenticated %}
+    <a href="{% url 'profile' user.username %}" class="log_in_link">
+        {{user.username}}
+    </a>
+{% else %}
+    <a href="{% url 'login' %}" class="log_in_link">Log in</a>
+{% endif %}

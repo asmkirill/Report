@@ -4,7 +4,16 @@
 {% block static_files %}
     <link rel="stylesheet" href="{% static 'protocol/css/forms.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'protocol/js/forms.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            // Обработчик события для кнопки "Add new fields"
+            $('#addRowBtn').click(function() {
+                var newRow = $('#row-template').clone(); // Клонируем шаблон строки формы
+                newRow.removeAttr('id'); // Удаляем атрибут id у новой строки, чтобы избежать дублирования идентификаторов
+                $('#form-table tbody').append(newRow); // Добавляем новую строку в таблицу
+            });
+        });
+    </script>
 {% endblock %}
 
 {% block header-logo %}
@@ -16,74 +25,64 @@
 {% endblock %}
 
 {% block content %}
-    <form id="create_protocol_form" method="post">
-        {% csrf_token %}
-        <div class="basic_protocol_fields">
-            {{ form.title }}
-            <table>
-                <tr id="row_default_title_line">
-                    <td class="td_no">
-                        No.
-                    </td>
-                    <td class="td_item">
-                        Item
-                    </td>
-                    <td class="td_last_3">
-                        Responsible
-                    </td>
-                    <td class="td_last_3">
-                        Deadline
-                    </td>
-                    <td class="td_last_3">
-                        Status
-                    </td>
-                </tr>
-                <tr id="row-template">
-                    <td class="td_no">
-                        {{ form.no }}
-                    </td>
-                    <td class="td_item">
-                        {{ form.item }}
-                    </td>
-                    <td class="td_last_3">
-                        {{ form.responsible }}
-                    </td>
-                    <td class="td_last_3">
-                        {{ form.deadline }}
-                    </td>
-                    <td class="td_last_3">
-                        {{ form.status }}
-                    </td>
-                </tr>
-            </table>
-            <button type="button" id="addRowBtn" class="btn btn-outline-secondary btn-sm">Add new fields</button>
-            <div class="notes_border_field">
-                {{ form.notes }}
-            </div>
-        </div>
-    </form>
+<form method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Item</th>
+                <th>Responsible</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for form in formset %}
+                {% if form.instance.pk %}
+                    <tr>
+                        <td>{{ form.instance.no }}</td>
+                        <td>{{ form.instance.item }}</td>
+                        <td>{{ form.instance.responsible }}</td>
+                        <td>{{ form.instance.deadline }}</td>
+                        <td>{{ form.instance.status }}</td>
+                        <td><input type="checkbox" name="{{ form.prefix }}-DELETE" id="{{ form.prefix }}-DELETE"></td>
+                    </tr>
+                {% else %}
+                    <tr class="formset-row">
+                        <td>{{ form.no }}</td>
+                        <td>{{ form.item }}</td>
+                        <td>{{ form.responsible }}</td>
+                        <td>{{ form.deadline }}</td>
+                        <td>{{ form.status }}</td>
+                        <td><input type="checkbox" name="{{ form.prefix }}-DELETE" id="{{ form.prefix }}-DELETE"></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Save to database</button>
+</form>
 
-    <div id="protocol_generated_id" class="protocol_id_watermark">
-        <script>
-                protocol_generated_id_js();
-        </script>
-    </div>
 
+<div id="protocol_generated_id" class="protocol_id_watermark">
+    <script>
+        protocol_generated_id_js();
+    </script>
+</div>
 {% endblock %}
 
 {% block bottom_nav_menu %}
     <div class="handling_events_with_protocol">
-         <form method="post">
+        <form method="post">
             {% csrf_token %}
+            {{ formset.management_form }}
             <button type="submit" id="save_protocol" class="btn btn-outline-success" form="create_protocol_form">
                 Save to database
             </button>
-         </form>
-         <a href="{{ pdf_url }}" download id="download_protocol_link">Download PDF</a>
+        </form>
+        <a href="{{ pdf_url }}" download id="download_protocol_link">Download PDF</a>
     </div>
 {% endblock %}
-
-
-
-
-

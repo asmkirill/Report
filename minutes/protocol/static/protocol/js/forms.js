@@ -41,28 +41,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
     autoResizeTextarea(); // Calling the function for automatic resizing of textarea height
   });
 
-  $("#create_protocol_form").on("submit", function(e) {
-    e.preventDefault(); // Prevent form submission
-    var formData = $(this).serialize();
-    // Send data to server
-    $.ajax({
-      url: '/protocol/create_protocol/', // URL of Django view that will handle the request
-      type: 'POST',
-      data: formData,
-      success: function(response) {
-        if (response.success) {
-          console.log('Data successfully saved in the database!');
-        }
-        else {
-          console.log('Error:', response.errors);
-        }
-      },
-      error: function(xhr, status, error) {
-        console.log('AJAX Error:', error);
-      }
+
+
+$(document).ready(function() {
+    $('#addRowBtn').click(function() {
+        // Клонируем последнюю строку формы и добавляем ее в таблицу
+        var newRow = $('.row-template:last').clone();
+        $('.row-template:last').after(newRow);
+
+        // Очищаем значения клонированной строки
+        newRow.find('input').val('');
     });
-  });
 });
+
 
 
 // Function that displays the generated ID of the protocol in both the header and watermarks

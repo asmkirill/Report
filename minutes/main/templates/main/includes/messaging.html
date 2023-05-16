@@ -1,9 +1,5 @@
 {% load static %}
-
-{% block static_files %}
-    <script src="{% static 'main/js/main.js' %}"></script>
-{% endblock %}
-
+<script src="{% static 'main/js/main.js' %}"></script>
 {% if messages %}
     {% for message in messages %}
         {% if message.tags == 'success' %}
@@ -29,7 +25,6 @@
         {% endif %}
     {% endfor %}
 {% endif %}
-
 <script>
 close_alert_fn();
 </script>
